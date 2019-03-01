@@ -1,0 +1,33 @@
+<div class="container text-light">
+  <div class="text-center">
+    <h1>Todo App</h1>
+    <img width="200" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+  </div>
+  <div style="padding: 0rem 5rem">    
+    <div class="form-group text-left">
+      <label for="todo-input">Todo Item</label>
+      <input id="todo-input" type="text" class="form-control" placeholder="Coding...." [(ngModel)]="addTodoInput">
+    </div>
+    <p class="text-right">
+      <button class="btn btn-outline-secondary text-light" (click)="addTodo()">Add</button>
+    </p>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Action</th>
+          <th scope="col">Item</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let todo of todos">
+          <td>
+            <button class="btn btn-sm btn-outline-primary text-light" (click)="updateTodo(todo)" *ngIf="todo.dateFinished == null">Done</button>
+            <button class="btn btn-sm btn-outline-danger text-light" (click)="deleteTodo(todo)" *ngIf="todo.dateFinished != null">Delete</button>
+          </td>
+          <td [ngClass]="{'strikethrough': todo.dateFinished != null}">{{todo.todoItem}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
