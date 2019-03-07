@@ -1,0 +1,40 @@
+@import '~@angular/material/theming';
+
+div.center {
+    // flex: auto;
+    text-align: center;
+    margin: 2rem 10rem;
+}
+
+form.form {
+    margin: 0 auto;
+    min-width: 150px;
+    max-width: 50rem;
+    width: 100%;
+}
+
+.input {
+    width: 100%
+}
+
+div.button-div {
+    text-align: right;
+}
+
+.list div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    * {
+        margin: auto 0;
+    }
+}
+
+.list:hover {
+    @include mat-elevation(4);
+}
+
+.linethrough { 
+    text-decoration: line-through;
+}
